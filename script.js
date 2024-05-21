@@ -17,20 +17,20 @@ const questions = [
 ];
 
 let currentQuestionIndex = 0;
+let score = 0;
 
 function displayQuestion(index) {
   const questionContainer = document.getElementById('question');
   const optionsContainer = document.getElementById('options');
-
+  const questionNoContainer = document.getElementById('question-no');
   
   questionContainer.innerHTML = '';
   optionsContainer.innerHTML = '';
+  questionNoContainer.textContent = `Question ${index + 1}`;
 
-  
   const questionText = document.createElement('p');
   questionText.textContent = questions[index].question;
   questionContainer.appendChild(questionText);
-
 
   const options = questions[index].choices;
 
@@ -60,30 +60,29 @@ function checkAnswer(event) {
   const correctOption = questions[currentQuestionIndex].answer;
   const allOptions = optionsContainer.querySelectorAll('input');
 
-  
   allOptions.forEach(option => {
     option.disabled = true;
   });
 
-  
   if (selectedOption === correctOption) {
     document.getElementById(selectedOption).nextSibling.classList.add('correct');
+    score += 5;
   } else {
     document.getElementById(selectedOption).nextSibling.classList.add('incorrect');
     document.getElementById(correctOption).nextSibling.classList.add('correct');
   }
 
-  
+  document.getElementById('score').textContent = `Score: ${score}`;
+
   setTimeout(() => {
     if (currentQuestionIndex < questions.length - 1) {
       currentQuestionIndex++;
       displayQuestion(currentQuestionIndex);
     } else {
-      alert('Quiz completed!');
+      alert(`Quiz completed! Your final score is: ${score}`);
     }
   }, 1000);
 }
-
 
 window.onload = function() {
   displayQuestion(currentQuestionIndex);

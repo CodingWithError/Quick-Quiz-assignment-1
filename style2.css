@@ -14,7 +14,21 @@ h1 {
   font-size: 2em;
 }
 
+.display {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
 
+.question-no, .score {
+  font-family: "Poetsen One", sans-serif;
+  font-size: 1.2em;
+}
 
 .question {
   margin-top: -30px;
@@ -29,6 +43,7 @@ h1 {
   background-color: white;
   transition: background-color 0.3s ease;
 }
+
 .options div:hover {
   background-color: #bdcff2;
 }
