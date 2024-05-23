@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Freeman&family=Lato:ital@1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poetsen+One&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Freeman&family=Lato:ital@1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poetsen+One&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style2.css">
   <title>Quiz Time</title>
 </head>
 <body>
   <div class="display">
-    <div class="question-no" id="question-no"></div>
+    <progress id="question-progress" max="100" value="0"></progress>
     <div class="score" id="score">Score: 0</div>
   </div>
   <div id="quiz-container">
     <div class="question" id="question"></div>
     <div class="options" id="options"></div>
+  </div>
+  <div id="result-container" class="hidden">
+    <div id="final-score"></div>
+    <button id="play-again">Play Again</button>
+    <a href="index.html"><button id="Go-Home">Go Home</button></a>
   </div>
   <script src="script.js"></script>
 </body>

@@ -67,3 +67,57 @@ label {
   padding: 10px;
   cursor: pointer;
 }
+
+progress {
+  width: 25%;
+  height: 25px;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 5px #000000;
+}
+
+progress::-webkit-progress-value {
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+#result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+#play-again {
+  background-color: aliceblue;
+  transition: background-color 0.3s ease;
+}
+
+#play-again:hover {
+  background-color: rgba(55, 194, 233, 0.1);
+}
+
+#Go-Home{
+  background-color: aliceblue;
+  transition: background-color 0.3s ease;
+}
+#Go-Home:hover {
+  background-color: rgba(55, 194, 233, 0.1);
+}
+
+#result-container button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}

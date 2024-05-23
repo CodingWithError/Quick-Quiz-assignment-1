@@ -1,4 +1,4 @@
-const questions = [   
+const questions = [
   {
     question: 'Which HTML tag is used to define an inline style?',
     choices: ['<script>', '<css>', '<style>', '<span>'],
@@ -22,11 +22,11 @@ let score = 0;
 function displayQuestion(index) {
   const questionContainer = document.getElementById('question');
   const optionsContainer = document.getElementById('options');
-  const questionNoContainer = document.getElementById('question-no');
-  
+  const progressBar = document.getElementById('question-progress');
+
   questionContainer.innerHTML = '';
   optionsContainer.innerHTML = '';
-  questionNoContainer.textContent = `Question ${index + 1}`;
+  progressBar.value = ((index + 1) / questions.length) * 100;
 
   const questionText = document.createElement('p');
   questionText.textContent = questions[index].question;
@@ -79,9 +79,23 @@ function checkAnswer(event) {
       currentQuestionIndex++;
       displayQuestion(currentQuestionIndex);
     } else {
-      alert(`Quiz completed! Your final score is: ${score}`);
+      displayResults();
     }
   }, 1000);
+}
+
+function displayResults() {
+  const quizContainer = document.getElementById('quiz-container');
+  const resultContainer = document.getElementById('result-container');
+  const finalScore = document.getElementById('final-score');
+
+  quizContainer.classList.add('hidden');
+  resultContainer.classList.remove('hidden');
+  finalScore.textContent = `Your final score is: ${score}`;
+
+  document.getElementById('play-again').addEventListener('click', () => {
+    location.reload();
+  });
 }
 
 window.onload = function() {
